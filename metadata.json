@@ -1,0 +1,21 @@
+{
+  "name": "autostructure-docker_laravel_module",
+  "version": "0.1.0",
+  "author": "autostructure",
+  "summary": "Install Laravel in a container.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/autostructure/docker_laravel_module.git",
+  "project_page": "https://github.com/autostructure/docker_laravel_module",
+  "issues_url": "https://github.com/autostructure/docker_laravel_module/issues",
+  "dependencies": [
+    {
+      "name": "autostructure-laravel",
+      "version_requirement": "> 0.0.0"
+    },
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.0.0 < 5.0.0"
+    }
+  ],
+  "data_provider": null
+}

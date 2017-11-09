@@ -1,0 +1,6 @@
+fixtures:
+  repositories:
+    stdlib:  "https://github.com/puppetlabs/puppetlabs-stdlib.git"
+    laravel: "https://github.com/autostructure/laravel.git"
+  symlinks:
+    secure_docker: "#{source_dir}"
