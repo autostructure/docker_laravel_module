@@ -50,6 +50,10 @@ class docker_laravel_module {
     owner  => 'root',
     group  => 'root',
     mode   => 'u+x',
-    source => 'puppet:///modules/laravel/cmd_wrapper.sh',
+    source => 'puppet:///modules/docker_laravel_module/cmd_wrapper.sh',
+  }
+
+  file { '/var/www/laravel/.env':
+    ensure => 'absent',
   }
 }
