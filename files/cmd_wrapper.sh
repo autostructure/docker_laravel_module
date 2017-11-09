@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # Start the first process
-./my_first_process -D
+/etc/init.d/nginx start
 status=$?
 if [ $status -ne 0 ]; then
-  echo "Failed to start my_first_process: $status"
+  echo "Failed to start NGINX: $status"
   exit $status
 fi
 
 # Start the second process
-./my_second_process -D
+/etc/init.d/php7.0-fpm start
 status=$?
 if [ $status -ne 0 ]; then
-  echo "Failed to start my_second_process: $status"
+  echo "Failed to start FPM: $status"
   exit $status
 fi
 
@@ -23,9 +23,9 @@ fi
 # Otherwise it will loop forever, waking up every 60 seconds
 
 while /bin/true; do
-  ps aux |grep my_first_process |grep -q -v grep
+  ps aux | grep php-fpm | grep "master process" | grep -q -v grep
   PROCESS_1_STATUS=$?
-  ps aux |grep my_second_process |grep -q -v grep
+  ps aux | grep nginx | grep "master process" | grep -q -v grep
   PROCESS_2_STATUS=$?
   # If the greps above find anything, they will exit with 0 status
   # If they are not both 0, then something is wrong
